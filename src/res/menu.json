@@ -1,0 +1,17 @@
+[
+    {
+        "id": 0,
+        "title": "Home",
+        "icon": "icon_home"
+    },
+    {
+        "id": 1,
+        "title": "Author",
+        "icon": "icon_author"
+    },
+    {
+        "id": 2,
+        "title": "Favourites",
+        "icon": "icon_favourites"
+    }
+]

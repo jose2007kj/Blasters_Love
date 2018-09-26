@@ -1,0 +1,3 @@
+rootProject.name = 'Blasters_Love'
+
+include ':app'
