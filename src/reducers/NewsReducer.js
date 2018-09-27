@@ -14,7 +14,7 @@ import {
  } from '../actions/types';
  const INITIAL_STATE = {
         news: {},
-        news_cache:{},
+        news_cache:null,
         news_saved:false,
         fetch_status:'',
         error:''

@@ -3,6 +3,12 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 
 const Menu = ({ onPress, title, icon }) => {
     const { menuStyle, menuTextStyle, menuImageStyle } = styles;
+    let icons = {
+        'newspaper': require('../../res/icons/newspaper.png')
+        ,'group': require('../../res/icons/group.png')
+        ,'schedule': require('../../res/icons/schedule.png')
+        ,'standing': require('../../res/icons/list.png')
+      }
     return (
         <TouchableOpacity
             onPress={onPress}
@@ -12,7 +18,7 @@ const Menu = ({ onPress, title, icon }) => {
             >
                 <Image
                     style={menuImageStyle}
-                    source={{ uri: icon }}
+                    source={icons[icon]}
                     resizeMode="cover"
                 />
                 <Text style={menuTextStyle}>{title}</Text>

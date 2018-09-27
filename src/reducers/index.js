@@ -5,11 +5,13 @@ import NavigationReducer from './NavigationReducer';
 import PlayersReducer from './PlayerReducer';
 import ScheduleReducer from './ScheduleReducer';
 import PlayerDetailsReducer from './PlayerDetailReducer';
+import StandingReducer from './StandingReducer';
 export default combineReducers({
   news:NewsReducer,
   newsDetails:NewsDetailsReducer,
   navigation:NavigationReducer,
   players:PlayersReducer,
   playerDetails:PlayerDetailsReducer,
-  schedule:ScheduleReducer
+  schedule:ScheduleReducer,
+  standing:StandingReducer
 });

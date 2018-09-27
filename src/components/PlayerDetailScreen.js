@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
-import {fetchStartPlayerDetails,fetchPlayerDetails} from '../actions';
+import {fetchStartPlayerDetails,fetchPlayerDetails, fetchPlayersStart, fetchPlayers} from '../actions';
 import {Button,Card} from 'react-native-elements';
 var width = Dimensions.get('window').width;
 var height=Dimensions.get('window').height;
@@ -26,6 +26,11 @@ class PlayerDetailScreen extends Component{
   componentDidMount() {
       console.log("player url ,playerdetail url value is"+this.props.playerDetailUrl)
     this.props.fetchStartPlayerDetails();
+    this.props.fetchPlayerDetails(this.props.playerDetailUrl);
+}
+onItemPressed() {
+  console.log("reload pressed");
+  this.props.fetchStartPlayerDetails();
     this.props.fetchPlayerDetails(this.props.playerDetailUrl);
 }
   
@@ -216,8 +221,9 @@ default:
           opacity={0.5}
           resizeMode='cover'
           />
-                       <Text style={styles.newsText}>Sorry An error Occured......Please try again</Text>
+                       <Text style={styles.newsText}>Sorry An error Occured......Please make sure you have active internet connection and Please try again</Text>
                        <Button title="Reload"
+                       onPress={() => this.onItemPressed()}
             buttonStyle={{backgroundColor: "#5D4037",
             width: width*0.3,
             height: 0.09,
@@ -267,6 +273,15 @@ const styles = StyleSheet.create({
   },
   news:{
     flex:3
+  },
+  newsText: {
+    marginTop: 10,
+    fontFamily: 'Helvetica',
+    fontSize: 26,
+    fontWeight: 'bold',
+    textAlign: "center",
+    color:"white",
+textAlignVertical: "center",
   },
   menu:{
     height:height-60,

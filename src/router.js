@@ -9,7 +9,7 @@ import DrawerMenu from './components/DrawerMenu';
 import MenuIcon from './res/icons/icon_menu.png';
 import BackIcon from './res/icons/icon_back.png';
 import ScheduleScreen from './components/ScheduleScreen';
-
+import StandingScreen from './components/StandingScreen';
 class RouterComponent extends Component {
     
     render() {
@@ -49,6 +49,12 @@ class RouterComponent extends Component {
                                 key="schedule"
                                 component={ScheduleScreen}
                                 title="schedule"                                
+                                hideNavBar={false}                                
+                            />
+                            <Scene
+                                key="standing"
+                                component={StandingScreen}
+                                title="Standings"                                
                                 hideNavBar={false}                                
                             />
                                

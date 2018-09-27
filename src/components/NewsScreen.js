@@ -29,6 +29,11 @@ class NewsScreen extends Component{
  onItemPressed(item) {
   this.props.navigateToScreen('News Details', item);
 }
+onReloadPressed() {
+  console.log("inside reload");
+  this.props.fetchStart();
+  this.props.fetchNews();
+}
   render() {
     switch (this.props.fetch_status) {
       case 'loading':
@@ -83,7 +88,7 @@ class NewsScreen extends Component{
       default:
       this.props.getSavedNews();
       // console.log("inside news saved sucess"+this.props.news_saved);
-      if(this.props.news_cache!='') {
+      if(this.props.news_cache!=null) {
         // console.log("inside news saved sucess");
         // console.log("news from async"+this.props.news_cache);
         
@@ -134,8 +139,9 @@ class NewsScreen extends Component{
           opacity={0.7}
           resizeMode='cover'
           />
-             <Text style={styles.newsText}>Sorry An error Occured......Please try again</Text>
+             <Text style={styles.newsText}>Sorry An error Occured......Please make sure you have an active internet connection and try again</Text>
              <Button title="Reload"
+             onPress={() => this.onReloadPressed()}
   buttonStyle={{backgroundColor: "#5D4037",
   width: width*0.3,
   height: 0.09,

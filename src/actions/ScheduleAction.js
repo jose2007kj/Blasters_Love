@@ -56,7 +56,12 @@ export const fetchSchedule = () => {
     return (dispatch) => {
         axios.get(SCHEDULE)
   .then(function (response) {
+    Object.keys(response.data.matches).map( (key,index)=>{
+        var splitDt=response.data.matches[key].start_date.split('T');
+        var splitT=splitDt[1].split('+');
+        response.data.matches[key].start_date=splitDt[0]+'@'+splitT[1];
     
+    });
     dispatch({ type: SCHEDULE_FETCHED, payload: response });
                   
   })

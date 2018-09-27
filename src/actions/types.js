@@ -7,6 +7,7 @@ export const NAVIGATE_TO_CONTENT = 'navigate_to_content_screen';
 export const NAVIGATE_TO_NEWS = 'navigate_to_News_screen';
 export const NAVIGATE_TO_NEWS_DETAILS= 'navigate_to_news_details';
 export const NAVIGATE_TO_SCHEDULE = 'navigate_to_schedule_screen';
+export const NAVIGATE_TO_STANDING='navigate to standing screen';
 export const SET_TITLE = 'set_title_of_screen';
 //Api fetch types
 //schedule
@@ -46,3 +47,11 @@ export const PLAYER_DETAILS_FETCHED='players_details_fetched';
 export const PLAYER_DETAILS_FETCH_ERROR='players_details_fetch_Error';
 export const PLAYER_DETAILS_FETCH_INIT='players_details_fetch_started';
 export const PLAYERS_FETCHED_FROM_STORAGE='players fetched from storage';
+
+//standing
+export const STANDING_FETCHED='STANDING_fetched';
+export const STANDING_FETCH_ERROR='STANDING_fetch_error';
+export const STANDING_FETCH_INIT='STANDING_fetch_started';
+export const STANDING_SAVED='STANDING_data saved';
+export const STANDING_NOT_SAVED='STANDING data not saved';
+export const STANDING_FETCHED_FROM_STORAGE='standing loaded from async';

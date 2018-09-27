@@ -25,6 +25,11 @@ class NewsDetailScreen extends Component{
     this.props.fetchStartDetails();
     this.props.fetchNewsDetails(this.props.newsDetailUrl);
 }
+onReloadPressed(){
+  console.log("inside reload");
+  this.props.fetchStartDetails();
+  this.props.fetchNewsDetails(this.props.newsDetailUrl);
+}
   
 
   render() {
@@ -75,8 +80,9 @@ class NewsDetailScreen extends Component{
           opacity={0.5}
           resizeMode='cover'
           />
-                       <Text style={styles.newsText}>Sorry An error Occured......Please try again</Text>
-                       <Button title="Reload"
+                       <Text style={styles.newsText}>Sorry An error Occured......Please make sure you have an active internet connection and try again</Text>
+             <Button title="Reload"
+             onPress={() => this.onReloadPressed()}
             buttonStyle={{backgroundColor: "#5D4037",
             width: width*0.3,
             height: 0.09,

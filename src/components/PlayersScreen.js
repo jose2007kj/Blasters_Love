@@ -31,6 +31,11 @@ class PlayersScreen extends Component{
      console.log("item pressed");
   this.props.navigateToScreen('Player Details', item);
 }
+onReloadPressed(){
+  console.log("inside reload");
+  this.props.fetchPlayersStart();
+  this.props.fetchPlayers();
+}
   render() {
     switch (this.props.fetch_status) {
       case 'loading':
@@ -137,8 +142,10 @@ class PlayersScreen extends Component{
           opacity={0.7}
           resizeMode='cover'
           />
-             <Text style={styles.newsText}>Sorry An error Occured......Please try again</Text>
-             <Button title="Reload"
+                      <Text style={styles.newsText}>Sorry An error Occured......Please make sure you have active internet connection and Please try again</Text>
+                      <Button title="Reload"
+
+             onPress={() => this.onReloadPressed()}
   buttonStyle={{backgroundColor: "#5D4037",
   width: width*0.3,
   height: 0.09,

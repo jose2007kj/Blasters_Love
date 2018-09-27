@@ -7,7 +7,8 @@ import {
     NAVIGATE_TO_PLAYERS_DETAILS,
     SET_TITLE,
     NAVIGATE_TO_PLAYERS,
-    NAVIGATE_TO_SCHEDULE
+    NAVIGATE_TO_SCHEDULE,
+    NAVIGATE_TO_STANDING
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -40,6 +41,10 @@ export default (state = INITIAL_STATE, action) => {
             console.log("inside naviagte to schedule reducer...");
             Actions.schedule();
             return state;  
+        case NAVIGATE_TO_STANDING:
+            console.log("inside naviagte to standing reducer...");
+            Actions.standing();
+            return state;
         case NAVIGATE_TO_MAIN:
             console.log("inside main reducer...."); 
             setTimeout(()=>{

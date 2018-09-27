@@ -14,6 +14,7 @@ import {Button} from 'react-native-elements';
 import {fetchSchedule,navigateToScreen,fetchScheduleStart,saveSchedule,getSavedSchedule} from '../actions';
 var width = Dimensions.get('window').width;
 var height=Dimensions.get('window').height;
+// dateTime={};
 class ScheduleScreen extends Component{
     componentWillMount(){
       console.log("-----------inside schedule screen--------");
@@ -23,8 +24,11 @@ class ScheduleScreen extends Component{
         this.props.fetchSchedule();
         // console.log("json dtat "+JSON.stringify(this.props.news));
     }
-    onItemPressed(item) {
-    //   this.props.navigateToScreen('News Details', item);
+    
+    onReloadPressed(){
+      console.log("inside reload");
+      this.props.fetchScheduleStart();
+        this.props.fetchSchedule();
     }
 renderItem = ({item}) => (
     <View style={{ alignItems:'center', justifyContent:'center', width:width, height:height*0.3, borderRadius:35, borderColor:'#d9991d', margin:5, borderWidth:3, backgroundColor:'rgba(217,153,29,0.4)'}}>
@@ -52,6 +56,7 @@ renderItem = ({item}) => (
           style={styles.teamLogo}
           opacity={0.7}
           />
+          
                           </View>
             
             {/* <Text style={styles.newsText}>{item.participants[0].name}</Text>
@@ -59,7 +64,9 @@ renderItem = ({item}) => (
             
             <Text style={styles.newsText}>{item.participants[1].name}</Text>
             <Text style={styles.newsText}>{item.participants[1].value}</Text> */}
-            
+            <View style={{ alignItems:'center', justifyContent:'center', width:width*0.7, height:height*0.05, borderRadius:35, borderColor:'#d9991d', margin:5, borderWidth:3, backgroundColor:'rgba(217,153,29,0.4)'}}>
+            <Text style={{color:'white',textAlign:'center', fontWeight:'700', fontSize:20}}>{item.start_date}</Text>
+            </View>
                 </View>
   );
   render() {
@@ -75,7 +82,6 @@ renderItem = ({item}) => (
       </View>
       case 'success':
       this.props.saveSchedule(this.props.schedule);
-
       
     return(
             <View style={styles.container} >
@@ -131,8 +137,9 @@ renderItem = ({item}) => (
           opacity={0.7}
           resizeMode='cover'
           />
-             <Text style={styles.newsText}>Sorry An error Occured......Please try again</Text>
+             <Text style={styles.newsText}>Sorry An error Occured......Please make sure you have an active internet connection and try again</Text>
              <Button title="Reload"
+             onPress={() => this.onReloadPressed()}
   buttonStyle={{backgroundColor: "#5D4037",
   width: width*0.3,
   height: 0.09,

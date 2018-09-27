@@ -30,18 +30,23 @@ class DrawerMenu extends Component {
             <View style={styles.items}>
                 <Menu 
                 title="News" 
-                icon="icon_home" 
+                icon="newspaper" 
                 onPress={() => this.props.navigateToScreen('News')} 
                 />
                 <Menu 
                 title="Players" 
-                icon="icon_home" 
+                icon="group" 
                 onPress={() => this.props.navigateToScreen('Players')} 
                 />
                 <Menu 
                 title="Schedule" 
-                icon="icon_home" 
+                icon="schedule" 
                 onPress={() => this.props.navigateToScreen('Schedule')} 
+                />
+                <Menu 
+                title="Standings" 
+                icon="standing" 
+                onPress={() => this.props.navigateToScreen('Standing')} 
                 />
             </View></View>
             
