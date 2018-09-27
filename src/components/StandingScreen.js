@@ -21,15 +21,10 @@ class StandingScreen extends Component{
     componentWillMount(){
         this.props.fetchStandingStart();
         this.props.fetchStanding();
-      console.log("-----------loading standing screen--------");
     }
-    componentDidMount() {
-
-        // console.log("json dtat "+JSON.stringify(this.props.news));
-    }
+    
     onItemPressed() {
-        console.log("reload pressed");
-        this.props.fetchStandingStart();
+      this.props.fetchStandingStart();
         this.props.fetchStanding();
    }
     renderHeader() {
@@ -55,7 +50,6 @@ class StandingScreen extends Component{
     renderItem = ({item}) => (
         
         
-        // <View style={{ alignItems:'center', justifyContent:'center', width:width, height:height*0.1, borderRadius:35, borderColor:'#d9991d', margin:5, borderWidth:3, backgroundColor:'rgba(217,153,29,0.4)'}}>
                 <View style={{flexDirection:'row',  alignItems:'center', justifyContent:'center', width:width*0.99, height:height*0.065, borderRadius:35, borderColor:'#d9991d', margin:5, borderWidth:3, backgroundColor:'rgba(217,153,29,0.4)'}}>
                 <Text style={{marginLeft:2,color:'white',flex:2, fontSize:9}}>{item.team_name}</Text>
                 <Text style={{marginLeft:-2,color:'white',flex:1, fontSize:18}}> {item.played}</Text>
@@ -65,8 +59,6 @@ class StandingScreen extends Component{
                 <Text style={{color:'white',flex:1, fontSize:18}}>{item.points}</Text>
                 
                 </View>
-               
-        // </View>
       );
 
 
@@ -83,8 +75,7 @@ class StandingScreen extends Component{
       </View>
       case 'success':
       this.props.saveStanding(this.props.standing);  
-    console.log("data inside standing screen "+JSON.stringify(this.props.standing));
-          return(
+   return(
             <View style={styles.container} >
                 <Image 
           source={require('../res/nav_header.jpg')}
@@ -102,14 +93,8 @@ class StandingScreen extends Component{
           )
       default:
       this.props.getSavedStanding();
-      console.log("enthu kopa...."+JSON.stringify(this.props.standing_cache));
       if(this.props.standing_cache!=null) {
-        
-        // console.log("inside news saved sucess");
-        console.log("players from async"+JSON.stringify(this.props.standing_cache));
-        
-        // console.log("json dtat "+JSON.stringify(this.props.news_cache));
-          return(
+      return(
             <View style={styles.container} >
               <Image 
           source={require('../res/nav_header.jpg')}
@@ -184,17 +169,6 @@ textAlignVertical: "center",
       paddingTop: 30,
       borderRadius: 2,
     },
-    name: {
-      fontFamily: 'Verdana',
-      fontSize: 18
-    },
-    email: {
-      color: 'red'
-    },
-    buttonView:{
-      marginTop:height*0.1,
-      marginLeft:width*0.5
-    },
     header: {
         flexDirection: 'row',
         marginBottom: 10
@@ -207,25 +181,9 @@ textAlignVertical: "center",
         color: '#D3D3D3',
         fontFamily: 'Rubik-Light'
     },
-    teamcell: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'row',
-        height: 100,
-        backgroundColor: '#141414',
-        marginTop: 5,
-        marginBottom: 5
-      },
       statcell: {
         flex: 1
-      },
-      statcellText: {
-        textAlign: 'center',
-        fontSize: 18,
-        color: '#D3D3D3',
-        fontFamily: 'Rubik-Light'
-    }
+      }
     
   });
 const mapStateToProps = (state) => {

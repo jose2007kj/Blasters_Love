@@ -16,11 +16,6 @@ var width = Dimensions.get('window').width;
 var height=Dimensions.get('window').height;
 class NewsDetailScreen extends Component{
   
-  componentWillMount(){
-    // console.log("inside newsdetails"+JSON.stringify(this.props.newsDetailUrl));
-    // this.props.fetchStartDetails();
-    // this.props.fetchNewsDetails(this.props.newsDetailUrl);
-  }
   componentDidMount() {
     this.props.fetchStartDetails();
     this.props.fetchNewsDetails(this.props.newsDetailUrl);
@@ -33,12 +28,7 @@ onReloadPressed(){
   
 
   render() {
-    // Because of content inset the scroll value will be negative on iOS so bring
-    // it back to 0.
-      console.log("testing image in card:"+this.props.newsDetailUrl.imgSrc);
-  
-      
-        switch(this.props.fetch_status){
+    switch(this.props.fetch_status){
                 case 'loading':
                       return (<View style={{flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
                                   <Image 
@@ -129,24 +119,7 @@ onReloadPressed(){
         textAlign: "center",
         color:"white",
   textAlignVertical: "center",
-      },
-      flatview: {
-        justifyContent: 'center',
-        paddingTop: 30,
-        borderRadius: 2,
-      },
-      name: {
-        fontFamily: 'Verdana',
-        fontSize: 18
-      },
-      email: {
-        color: 'red'
-      },
-      buttonView:{
-        marginTop:height*0.1,
-        marginLeft:width*0.5
       }
-      
     });
 
 const mapStateToProps = (state) => {

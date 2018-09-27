@@ -18,18 +18,12 @@ var width = Dimensions.get('window').width;
 var height=Dimensions.get('window').height;
 class PlayerDetailScreen extends Component{
   
-  componentWillMount(){
-    // console.log("inside newsdetails"+JSON.stringify(this.props.newsDetailUrl));
-    // this.props.fetchStartDetails();
-    // this.props.fetchNewsDetails(this.props.newsDetailUrl);
-  }
+  
   componentDidMount() {
-      console.log("player url ,playerdetail url value is"+this.props.playerDetailUrl)
-    this.props.fetchStartPlayerDetails();
+      this.props.fetchStartPlayerDetails();
     this.props.fetchPlayerDetails(this.props.playerDetailUrl);
 }
 onItemPressed() {
-  console.log("reload pressed");
   this.props.fetchStartPlayerDetails();
     this.props.fetchPlayerDetails(this.props.playerDetailUrl);
 }
@@ -49,7 +43,6 @@ onItemPressed() {
                       </View>)
         
         case 'success':
-        console.log("testing url:"+JSON.stringify(this.props.player_details))
         filteredPlayerDetails={}
         Object.keys(this.props.player_details.data.stats.season).map( (key,index)=>{
             if(this.props.player_details.data.stats.season[key].year==0){
@@ -77,10 +70,7 @@ onItemPressed() {
                             <View style={{flexDirection:'row',width:300, margin:5, marginLeft:-20}}>
                           <View style={{flex:1, justifyContent:'center'}}>
                           <Text style={{textAlign:'right',fontWeight:'800', fontSize:18, color:'#fff', alignSelf:'flex-end'}}>GAMES</Text>
-                          {/* <View style={{flexDirection:'row', alignSelf:'flex-end', margin:5,}}>
-                          <Text style={{color:'#ffb240',textAlign:'right', fontWeight:'700', fontSize:12}}>heading enthu kodukum</Text>
-                          <Text style={{textAlign:'right', color:"#999", fontSize:12,fontWeight:'600',}}> subheading???</Text>
-                          </View> */}
+                          
                           </View>
                           <View style={{ alignItems:'center', justifyContent:'center', width:70, height:70, borderRadius:35, borderColor:'#494577', margin:5, borderWidth:3, backgroundColor:'rgba(0,0,0,0.2)'}}>
                           <Text style={{color:'#fff', fontSize:28, fontWeight:'700'}}>{filteredPlayerDetails.games}</Text>
@@ -90,10 +80,7 @@ onItemPressed() {
                             <View style={{flexDirection:'row',width:300, margin:5}}>
                           <View style={{flex:1, justifyContent:'center'}}>
                           <Text style={{textAlign:'right',fontWeight:'800', fontSize:18, color:'#fff', alignSelf:'flex-end'}}>SAVES</Text>
-                          {/* <View style={{flexDirection:'row', alignSelf:'flex-end', margin:5,}}>
-                          <Text style={{color:'#ffb240',textAlign:'right', fontWeight:'700', fontSize:12}}>2nd heading</Text>
-                          <Text style={{textAlign:'right', color:"#999", fontSize:12,fontWeight:'600',}}> 2nd subheading</Text>
-                          </View> */}
+                          
                           </View>
                           <View style={{ alignItems:'center', justifyContent:'center', width:70, height:70, borderRadius:35, borderColor:'#d9991d', margin:5, borderWidth:3, backgroundColor:'rgba(217,153,29,0.4)'}}>
                           <Text style={{color:'#fff', fontSize:28, fontWeight:'700'}}>{filteredPlayerDetails.saves}</Text>
@@ -102,10 +89,7 @@ onItemPressed() {
                             <View style={{flexDirection:'row',width:300, margin:5, marginLeft:-30}}>
                           <View style={{flex:1, justifyContent:'center'}}>
                           <Text style={{textAlign:'right',fontWeight:'800', fontSize:18, color:'#fff', alignSelf:'flex-end'}}>GOALS CONCEDED</Text>
-                          {/* <View style={{flexDirection:'row', alignSelf:'flex-end', margin:5,}}>
-                          <Text style={{color:'#ffb240',textAlign:'right', fontWeight:'700', fontSize:12}}>3rd heagin</Text>
-                          <Text style={{textAlign:'right', color:"#999", fontSize:12,fontWeight:'600',}}> 3rd sub heading</Text>
-                          </View> */}
+                          
                           </View>
                           <View style={{ alignItems:'center', justifyContent:'center', width:70, height:70, borderRadius:35, borderColor:'#494675', margin:5, borderWidth:3, backgroundColor:'rgba(73,70,117,0.6)'}}>
                           <Text style={{color:'#fff', fontSize:28, fontWeight:'700'}}>{filteredPlayerDetails.goals_conceded}</Text>
@@ -114,24 +98,13 @@ onItemPressed() {
                             <View style={{flexDirection:'row',width:300, margin:5, marginLeft:-20}}>
                           <View style={{flex:1, justifyContent:'center'}}>
                           <Text style={{textAlign:'right',fontWeight:'800', fontSize:18, color:'#fff', alignSelf:'flex-end'}}>CLEARANCES</Text>
-                          {/* <View style={{flexDirection:'row', alignSelf:'flex-end', margin:5,}}>
-                          <Text style={{color:'#ffb240',textAlign:'right', fontWeight:'700', fontSize:12}}>4th heading</Text>
-                          <Text style={{textAlign:'right', color:"#999", fontSize:12,fontWeight:'600',}}> 4th subheading</Text>
-                          </View> */}
+                          
                           </View>
                           <View style={{ alignItems:'center', justifyContent:'center', width:70, height:70, borderRadius:35, borderColor:'#494675', margin:5, borderWidth:3, backgroundColor:'rgba(0,0,0,0.3)'}}>
                           <Text style={{color:'#fff', fontSize:28, fontWeight:'700'}}>{filteredPlayerDetails.clearance}</Text>
                           </View>
                             </View>
-                            {/* <View style={styles.controls}>
-                            <TouchableOpacity style={styles.circle}>
-                            <Icon name = "navigate-before" onPress = {() => this.prev()} size={20} color="#d9991d" />
-                            </TouchableOpacity>
-                            <Text style={{fontSize:12, fontWeight:'600', color:'#fff'}}>PLAYER CARD</Text>
-                            <TouchableOpacity style={styles.circle}>
-                            <Icon name = "navigate-next" onPress ={() => this.next()} size={20} color="#d9991d"  />
-                            </TouchableOpacity>
-                            </View> */}
+                        
                           </View>
                           </ImageBackground>
                           </ImageBackground>
@@ -151,10 +124,7 @@ return(
         <View style={{flexDirection:'row',width:300, margin:5, marginLeft:-20}}>
       <View style={{flex:1, justifyContent:'center'}}>
       <Text style={{textAlign:'right',fontWeight:'800', fontSize:18, color:'#fff', alignSelf:'flex-end'}}>GAMES</Text>
-      {/* <View style={{flexDirection:'row', alignSelf:'flex-end', margin:5,}}>
-      <Text style={{color:'#ffb240',textAlign:'right', fontWeight:'700', fontSize:12}}>heading enthu kodukum</Text>
-      <Text style={{textAlign:'right', color:"#999", fontSize:12,fontWeight:'600',}}> subheading???</Text>
-      </View> */}
+      
       </View>
       <View style={{ alignItems:'center', justifyContent:'center', width:70, height:70, borderRadius:35, borderColor:'#494577', margin:5, borderWidth:3, backgroundColor:'rgba(0,0,0,0.2)'}}>
       <Text style={{color:'#fff', fontSize:28, fontWeight:'700'}}>{filteredPlayerDetails.games}</Text>
@@ -164,10 +134,7 @@ return(
         <View style={{flexDirection:'row',width:300, margin:5}}>
       <View style={{flex:1, justifyContent:'center'}}>
       <Text style={{textAlign:'right',fontWeight:'800', fontSize:18, color:'#fff', alignSelf:'flex-end'}}>GOALS</Text>
-      {/* <View style={{flexDirection:'row', alignSelf:'flex-end', margin:5,}}>
-      <Text style={{color:'#ffb240',textAlign:'right', fontWeight:'700', fontSize:12}}>2nd heading</Text>
-      <Text style={{textAlign:'right', color:"#999", fontSize:12,fontWeight:'600',}}> 2nd subheading</Text>
-      </View> */}
+     
       </View>
       <View style={{ alignItems:'center', justifyContent:'center', width:70, height:70, borderRadius:35, borderColor:'#d9991d', margin:5, borderWidth:3, backgroundColor:'rgba(217,153,29,0.4)'}}>
       <Text style={{color:'#fff', fontSize:28, fontWeight:'700'}}>{filteredPlayerDetails.goals}</Text>
@@ -176,10 +143,7 @@ return(
         <View style={{flexDirection:'row',width:300, margin:5, marginLeft:-30}}>
       <View style={{flex:1, justifyContent:'center'}}>
       <Text style={{textAlign:'right',fontWeight:'800', fontSize:18, color:'#fff', alignSelf:'flex-end'}}>ASSIST</Text>
-      {/* <View style={{flexDirection:'row', alignSelf:'flex-end', margin:5,}}>
-      <Text style={{color:'#ffb240',textAlign:'right', fontWeight:'700', fontSize:12}}>3rd heagin</Text>
-      <Text style={{textAlign:'right', color:"#999", fontSize:12,fontWeight:'600',}}> 3rd sub heading</Text>
-      </View> */}
+      
       </View>
       <View style={{ alignItems:'center', justifyContent:'center', width:70, height:70, borderRadius:35, borderColor:'#494675', margin:5, borderWidth:3, backgroundColor:'rgba(73,70,117,0.6)'}}>
       <Text style={{color:'#fff', fontSize:28, fontWeight:'700'}}>{filteredPlayerDetails.assists}</Text>
@@ -188,24 +152,13 @@ return(
         <View style={{flexDirection:'row',width:300, margin:5, marginLeft:-20}}>
       <View style={{flex:1, justifyContent:'center'}}>
       <Text style={{textAlign:'right',fontWeight:'800', fontSize:18, color:'#fff', alignSelf:'flex-end'}}>SHOTS</Text>
-      {/* <View style={{flexDirection:'row', alignSelf:'flex-end', margin:5,}}>
-      <Text style={{color:'#ffb240',textAlign:'right', fontWeight:'700', fontSize:12}}>4th heading</Text>
-      <Text style={{textAlign:'right', color:"#999", fontSize:12,fontWeight:'600',}}> 4th subheading</Text>
-      </View> */}
+      
       </View>
       <View style={{ alignItems:'center', justifyContent:'center', width:70, height:70, borderRadius:35, borderColor:'#494675', margin:5, borderWidth:3, backgroundColor:'rgba(0,0,0,0.3)'}}>
       <Text style={{color:'#fff', fontSize:28, fontWeight:'700'}}>{filteredPlayerDetails.shots}</Text>
       </View>
         </View>
-        {/* <View style={styles.controls}>
-        <TouchableOpacity style={styles.circle}>
-        <Icon name = "navigate-before" onPress = {() => this.prev()} size={20} color="#d9991d" />
-        </TouchableOpacity>
-        <Text style={{fontSize:12, fontWeight:'600', color:'#fff'}}>PLAYER CARD</Text>
-        <TouchableOpacity style={styles.circle}>
-        <Icon name = "navigate-next" onPress ={() => this.next()} size={20} color="#d9991d"  />
-        </TouchableOpacity>
-        </View> */}
+        
       </View>
       </ImageBackground>
       </ImageBackground>
@@ -249,27 +202,6 @@ const styles = StyleSheet.create({
       flex: 1,
       width:null,
       height:null
-  },controls:{
-    position:'absolute',
-    height:50,
-    top:(height/2)-50,
-    flexDirection:'row',
-    justifyContent:'space-between',
-    alignItems:'center',
-    left:-60,
-    width:width,
-    backgroundColor:'rgba(0,0,0,0.2)'
-  },
-  circle:{
-    width:30,
-    height:30,
-    alignItems:'center',
-    justifyContent:'center',
-    margin:5,
-    borderRadius:15,
-    borderWidth:1,
-    borderColor:'#d9991d',
-    backgroundColor:'rgba(217,153,29,0.2)'
   },
   news:{
     flex:3
@@ -283,11 +215,7 @@ const styles = StyleSheet.create({
     color:"white",
 textAlignVertical: "center",
   },
-  menu:{
-    height:height-60,
-    width:width,
-    justifyContent:'center'
-  }
+  
   }
   );
   const mapStateToProps = (state) => {
