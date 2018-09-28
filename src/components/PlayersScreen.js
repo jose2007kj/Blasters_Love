@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform,TouchableOpacity,Dimensions,StyleSheet,FlatList,Image, Text, View,ActivityIndicator,ImageBackground
+import {Dimensions,StyleSheet,FlatList,Image, Text, View,ActivityIndicator,ImageBackground
 } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
@@ -19,20 +19,16 @@ var width = Dimensions.get('window').width;
 var height=Dimensions.get('window').height;
 class PlayersScreen extends Component{
     componentWillMount(){
-      console.log("-----------loading players screen--------");
       this.props.fetchPlayersStart();
     }
     componentDidMount() {
         
         this.props.fetchPlayers();
-        // console.log("json dtat "+JSON.stringify(this.props.news));
- }
+       }
  onItemPressed(item) {
-     console.log("item pressed");
   this.props.navigateToScreen('Player Details', item);
 }
 onReloadPressed(){
-  console.log("inside reload");
   this.props.fetchPlayersStart();
   this.props.fetchPlayers();
 }
@@ -49,8 +45,7 @@ onReloadPressed(){
       </View>
       case 'success':
       this.props.savePlayers(this.props.players);  
-    console.log("players data inside players screen "+JSON.stringify(this.props.players));
-          return(
+    return(
             <View style={styles.container} >
                 <Image 
           source={require('../res/nav_header.jpg')}
@@ -90,14 +85,8 @@ onReloadPressed(){
           )
       default:
       this.props.getSavedPlayers();
-      console.log("enthu kopa...."+JSON.stringify(this.props.players_cache));
       if(this.props.players_cache!=null) {
-        
-        // console.log("inside news saved sucess");
-        console.log("players from async"+JSON.stringify(this.props.players_cache));
-        
-        // console.log("json dtat "+JSON.stringify(this.props.news_cache));
-          return(
+        return(
             <View style={styles.container} >
               <Image 
           source={require('../res/nav_header.jpg')}
@@ -189,13 +178,6 @@ textAlignVertical: "center",
       justifyContent: 'center',
       paddingTop: 30,
       borderRadius: 2,
-    },
-    name: {
-      fontFamily: 'Verdana',
-      fontSize: 18
-    },
-    email: {
-      color: 'red'
     },
     buttonView:{
       marginTop:height*0.1,

@@ -6,9 +6,7 @@ import { Menu } from './common';
 
 class DrawerMenu extends Component {
 
-    componentWillMount(){
-        console.log("--------inside drawer menu=======");
-    }
+    
     render() {
         return (
             <View style={styles.container}> 
@@ -18,15 +16,6 @@ class DrawerMenu extends Component {
           
           resizeMode='cover'
           />
-                {/* <View style={styles.headerView} >
-                    <View style={styles.logoView}> 
-                        <Image 
-                            style={styles.logoImage}
-                            source={require('../res/icons/logo.png')}
-                        />
-                        <Text style={styles.logoText}>Let's Cook</Text>
-                    </View>
-                </View> */}
             <View style={styles.items}>
                 <Menu 
                 title="News" 

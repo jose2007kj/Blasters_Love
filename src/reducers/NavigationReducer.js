@@ -23,30 +23,24 @@ export default (state = INITIAL_STATE, action) => {
         case NAV_MENU_CLICKED:
             return { ...state, menu: action.payload };
         case NAVIGATE_TO_NEWS:
-            console.log("inside news reducer....");
             Actions.news();
             return state;
         case NAVIGATE_TO_NEWS_DETAILS:
             Actions.newsDetails({ newsDetailUrl: action.payload });
             return state;
         case NAVIGATE_TO_PLAYERS:
-            console.log("inside naviagte to players reducer...");
             Actions.players();
             return state;  
         case NAVIGATE_TO_PLAYERS_DETAILS:
-            console.log("inside navigate to player detailes reducer"+JSON.stringify(action.payload))
             Actions.playerDetails({ playerDetailUrl: action.payload });
             return state;
         case NAVIGATE_TO_SCHEDULE:
-            console.log("inside naviagte to schedule reducer...");
             Actions.schedule();
             return state;  
         case NAVIGATE_TO_STANDING:
-            console.log("inside naviagte to standing reducer...");
             Actions.standing();
             return state;
-        case NAVIGATE_TO_MAIN:
-            console.log("inside main reducer...."); 
+        case NAVIGATE_TO_MAIN: 
             setTimeout(()=>{
                 Actions.main();
                 return state;

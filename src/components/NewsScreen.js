@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform,TouchableOpacity,Dimensions,StyleSheet,FlatList,Image, Text, View,ActivityIndicator,ImageBackground
+import {Dimensions,StyleSheet,FlatList,Image, Text, View,ActivityIndicator,ImageBackground
 } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
@@ -185,13 +185,6 @@ textAlignVertical: "center",
       justifyContent: 'center',
       paddingTop: 30,
       borderRadius: 2,
-    },
-    name: {
-      fontFamily: 'Verdana',
-      fontSize: 18
-    },
-    email: {
-      color: 'red'
     },
     buttonView:{
       marginTop:height*0.1,
