@@ -47,7 +47,6 @@ export const fetchSchedule = () => {
         var splitT=splitDt[1].split('+');
         var fTime=splitT[0].split(':');
         correctTime=parseInt(fTime[0])-12;
-        console.log("time is "+correctTime);
         response.data.matches[key].start_date=splitDt[0]+'@'+correctTime.toString()+':'+fTime[1];
     
     });
