@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Router, Scene, Stack, Drawer } from 'react-native-router-flux';
+import {BackHandler} from 'react-native';
+import { Router, Scene, Stack, Drawer,Actions } from 'react-native-router-flux';
 import SplashScreen from './components/SplashScreen';
 import NewsScreen from './components/NewsScreen';
 import PlayersScreen from './components/PlayersScreen';
@@ -11,10 +12,17 @@ import BackIcon from './res/icons/icon_back.png';
 import ScheduleScreen from './components/ScheduleScreen';
 import StandingScreen from './components/StandingScreen';
 class RouterComponent extends Component {
-    
+    onBackPressed = () => {
+        if (Actions.state.index ===0) {
+          BackHandler.exitApp();
+          return false;
+        }
+        
+    };
     render() {
         return (
             <Router
+            backAndroidHandler={this.onBackPressed}
             titleStyle={{color:'#F0FFFF'}}
             navigationBarStyle={{ backgroundColor: '#5D4037' }}
             >
