@@ -11,6 +11,7 @@ import MenuIcon from './res/icons/icon_menu.png';
 import BackIcon from './res/icons/icon_back.png';
 import ScheduleScreen from './components/ScheduleScreen';
 import StandingScreen from './components/StandingScreen';
+import ScheduleDetailScreen from './components/ScheduleDetailScreen';
 class RouterComponent extends Component {
     onBackPressed = () => {
         if (Actions.state.index ===0) {
@@ -81,7 +82,13 @@ class RouterComponent extends Component {
                                 hideNavBar={false}
                                 backButtonImage={BackIcon}
                             />
-                      
+                        <Scene
+                                key="scheduleDetails"
+                                component={ScheduleDetailScreen}
+                                title="Match Center"
+                                hideNavBar={false}
+                                backButtonImage={BackIcon}
+                            />
                     </Stack>
                 </Stack>
             </Router>

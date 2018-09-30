@@ -6,6 +6,7 @@ import PlayersReducer from './PlayerReducer';
 import ScheduleReducer from './ScheduleReducer';
 import PlayerDetailsReducer from './PlayerDetailReducer';
 import StandingReducer from './StandingReducer';
+import ScheduleDetailsReducer from './ScheduleDetailsReducer';
 export default combineReducers({
   news:NewsReducer,
   newsDetails:NewsDetailsReducer,
@@ -13,5 +14,6 @@ export default combineReducers({
   players:PlayersReducer,
   playerDetails:PlayerDetailsReducer,
   schedule:ScheduleReducer,
-  standing:StandingReducer
+  standing:StandingReducer,
+  scheduleDetails:ScheduleDetailsReducer
 });

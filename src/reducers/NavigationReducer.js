@@ -5,6 +5,7 @@ import {
     NAVIGATE_TO_MAIN,
     NAVIGATE_TO_NEWS_DETAILS,
     NAVIGATE_TO_PLAYERS_DETAILS,
+    NAVIGATE_TO_SCHEDULE_DETAILS,
     SET_TITLE,
     NAVIGATE_TO_PLAYERS,
     NAVIGATE_TO_SCHEDULE,
@@ -15,7 +16,8 @@ const INITIAL_STATE = {
     menu: 'News',
     page: '',
     newsDetailUrl:'',
-    playerDetailUrl:''
+    playerDetailUrl:'',
+    scheduleId:''
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -37,6 +39,9 @@ export default (state = INITIAL_STATE, action) => {
         case NAVIGATE_TO_SCHEDULE:
             Actions.schedule();
             return state;  
+        case NAVIGATE_TO_SCHEDULE_DETAILS:
+        Actions.scheduleDetails({scheduleId: action.payload});
+            return state;
         case NAVIGATE_TO_STANDING:
             Actions.standing();
             return state;

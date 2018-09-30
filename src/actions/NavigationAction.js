@@ -7,7 +7,8 @@ import {
     NAVIGATE_TO_PLAYERS,
     NAVIGATE_TO_PLAYERS_DETAILS,
     NAVIGATE_TO_SCHEDULE,
-    NAVIGATE_TO_STANDING
+    NAVIGATE_TO_STANDING,
+    NAVIGATE_TO_SCHEDULE_DETAILS
 } from './types';
 
 export const navigationMenuClicked = (menu) => {
@@ -44,6 +45,11 @@ export const navigateToScreen = (screen, item) => {
             case 'Schedule' :
             return {
                 type: NAVIGATE_TO_SCHEDULE,
+            };
+            case 'Schedule Details' :
+            return {
+                type: NAVIGATE_TO_SCHEDULE_DETAILS,
+                payload: item
             };
             case 'Standing' :
             return {
