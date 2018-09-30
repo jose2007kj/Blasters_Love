@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Dimensions,StyleSheet,FlatList,Image, Text, View,ActivityIndicator,ImageBackground} from 'react-native';
+import {Dimensions,StyleSheet,FlatList,Image, Text, View,ActivityIndicator,ImageBackground,TouchableHighlight} from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import {Button} from 'react-native-elements'; 
@@ -26,8 +26,13 @@ class ScheduleScreen extends Component{
       this.props.fetchScheduleStart();
         this.props.fetchSchedule();
     }
+    onItemPressed(item) {
+      
+      this.props.navigateToScreen('Schedule Details',item);
+    }
 renderItem = ({item}) => (
-    <View style={{ alignItems:'center', justifyContent:'center', width:width, height:height*0.3, borderRadius:35, borderColor:'#d9991d', margin:5, borderWidth:3, backgroundColor:'rgba(217,153,29,0.4)'}}>
+  
+    <View style={{ alignItems:'center', justifyContent:'center', width:width, height:height*0.35, borderRadius:35, borderColor:'#d9991d', margin:5, borderWidth:3, backgroundColor:'rgba(217,153,29,0.4)'}}>
     
             <View style={{flexDirection:'row',  alignItems:'center', justifyContent:'center', width:width*0.7, height:height*0.05, borderRadius:35, borderColor:'#d9991d', margin:5, borderWidth:3, backgroundColor:'rgba(217,153,29,0.4)'}}>
             <Text style={{color:'white',textAlign:'center', fontWeight:'700', fontSize:20}}>{item.event_name}</Text>
@@ -56,8 +61,16 @@ renderItem = ({item}) => (
             <View style={{ alignItems:'center', justifyContent:'center', width:width*0.7, height:height*0.05, borderRadius:35, borderColor:'#d9991d', margin:5, borderWidth:3, backgroundColor:'rgba(217,153,29,0.4)'}}>
             <Text style={{color:'white',textAlign:'center', fontWeight:'700', fontSize:20}}>{item.start_date}</Text>
             </View>
-                </View>
-  );
+            {item.event_status!='Yet to begin'?<Button title="Read more"
+            onPress={() => this.onItemPressed(item.game_id)}
+      buttonStyle={{backgroundColor: "#5D4037",
+      width: width*0.3,
+      height: 0.09,
+      borderColor: "transparent",
+      borderWidth: 0,
+      borderRadius: 20}}
+      containerStyle={{ marginTop: 100 }}/>:null}
+                </View> );
   render() {
     switch (this.props.fetch_status) {
       case 'loading':
@@ -86,6 +99,7 @@ renderItem = ({item}) => (
                 renderItem={this.renderItem}
                 keyExtractor={item => item.game_id.toString()}
                 
+                
               />
             </View>
           )
@@ -106,6 +120,7 @@ renderItem = ({item}) => (
                 renderItem={this.renderItem}
                 // <View style={styles.flatview}>
                 keyExtractor={item => item.game_id.toString()}
+                
                 
               />
             </View>
