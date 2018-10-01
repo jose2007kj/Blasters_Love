@@ -30,15 +30,15 @@ const Menu = ({ onPress, title, icon }) => {
 
 const styles = {
     menuStyle: {
-        backgroundColor: 'rgba(0,0,0,.6)',
+         borderColor:'#0091EA', margin:5, borderWidth:3,
         padding: 10,
-        paddingLeft: 15,
+        paddingLeft: 35,
         flexDirection: 'row'
     },
     menuTextStyle: {
         fontSize: 20,
         color: '#f9f7f7',
-        marginLeft: 10
+        marginLeft: 30
     },
     menuImageStyle: {
         height: 25,

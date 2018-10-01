@@ -12,7 +12,9 @@ import {Dimensions,StyleSheet,FlatList,Image, Text, View,ActivityIndicator,Image
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import {Button} from 'react-native-elements';
- 
+
+import LinearGradient from 'react-native-linear-gradient';
+import * as style from './styles';
 import {fetchStanding,navigateToScreen,saveStanding,fetchStandingStart,getSavedStanding} from '../actions';
 
 var width = Dimensions.get('window').width;
@@ -50,7 +52,7 @@ class StandingScreen extends Component{
     renderItem = ({item}) => (
         
         
-                <View style={{flexDirection:'row',  alignItems:'center', justifyContent:'center', width:width*0.99, height:height*0.065, borderRadius:35, borderColor:'#d9991d', margin:5, borderWidth:3, backgroundColor:'rgba(217,153,29,0.4)'}}>
+                <View style={{flexDirection:'row',  alignItems:'center', justifyContent:'center', width:width*0.99, height:height*0.065, borderRadius:35, borderColor:'#0091EA', margin:5, borderWidth:3, backgroundColor:'rgba(217,153,29,0.4)'}}>
                 <Text style={{marginLeft:2,color:'white',flex:2, fontSize:9}}>{item.team_name}</Text>
                 <Text style={{marginLeft:-2,color:'white',flex:1, fontSize:18}}> {item.played}</Text>
                 <Text style={{color:'white',flex:1, fontSize:18}}>{item.wins}</Text>
@@ -71,7 +73,13 @@ class StandingScreen extends Component{
           style={styles.backgroundImage}
           opacity={0.7}
           resizeMode='cover'
-          /><ActivityIndicator size={'large'} />
+          />
+          <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
+          <ActivityIndicator size={'large'} />
       </View>
       case 'success':
       this.props.saveStanding(this.props.standing);  
@@ -82,7 +90,13 @@ class StandingScreen extends Component{
           style={styles.backgroundImage}
           opacity={0.7}
           resizeMode='cover'
-          />{this.renderHeader()}
+          />
+          <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
+          {this.renderHeader()}
                 <FlatList
                 data={this.props.standing.data.standings.groups[0].teams.team}
                 showsVerticalScrollIndicator={false}    
@@ -101,7 +115,13 @@ class StandingScreen extends Component{
           style={styles.backgroundImage}
           opacity={0.7}
           resizeMode='cover'
-          />{
+          />
+          <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
+          {
             this.renderHeader()
             }
             <FlatList
@@ -122,10 +142,15 @@ class StandingScreen extends Component{
           opacity={0.7}
           resizeMode='cover'
           />
+          <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
              <Text style={styles.newsText}>Sorry An error Occured......Please make sure you have active internet connection and try again</Text>
              <Button title="Reload"
              onPress={() => this.onItemPressed()}
-  buttonStyle={{backgroundColor: "#5D4037",
+  buttonStyle={{backgroundColor: "#0091EA",
   width: width*0.3,
   height: 0.09,
   borderColor: "transparent",

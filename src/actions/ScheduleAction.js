@@ -47,7 +47,7 @@ export const fetchSchedule = () => {
         var splitT=splitDt[1].split('+');
         var fTime=splitT[0].split(':');
         correctTime=parseInt(fTime[0])-12;
-        response.data.matches[key].start_date=splitDt[0]+'@'+correctTime.toString()+':'+fTime[1];
+        response.data.matches[key].start_date=splitDt[0]+' @ '+correctTime.toString()+':'+fTime[1];
     
     });
     dispatch({ type: SCHEDULE_FETCHED, payload: response });

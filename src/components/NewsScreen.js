@@ -15,6 +15,8 @@ import {Button} from 'react-native-elements';
  
 import {fetchNews,navigateToScreen,fetchStart,saveNews,getSavedNews} from '../actions';
 
+import LinearGradient from 'react-native-linear-gradient';
+import * as style from './styles';
 var width = Dimensions.get('window').width;
 var height=Dimensions.get('window').height;
 class NewsScreen extends Component{
@@ -43,7 +45,13 @@ onReloadPressed() {
           style={styles.backgroundImage}
           opacity={0.7}
           resizeMode='cover'
-          /><ActivityIndicator size={'large'} />
+          />
+          <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
+          <ActivityIndicator size={'large'} />
       </View>
       case 'success':
       this.props.saveNews(this.props.news);
@@ -57,6 +65,11 @@ onReloadPressed() {
           opacity={0.7}
           resizeMode='cover'
           />
+          <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
                 <FlatList
                 data={this.props.news}
                 showsVerticalScrollIndicator={false}
@@ -65,12 +78,12 @@ onReloadPressed() {
                   
                   
                   <ImageBackground borderRadius={20}
-              style={{flex:1,padding:1,height:height*0.4,opacity:0.8}}
+              style={{flex:1,padding:1,marginRight:width*0.01,marginLeft:width*0.01,height:height*0.4,opacity:0.8}}
               source={{uri: 'https://www.indiansuperleague.com/'+item.imgSrc}}>
             <Text style={styles.newsText}>{item.title}</Text>
             <View style={styles.buttonView}><Button title="Read more"
             onPress={() => this.onItemPressed(item)}
-      buttonStyle={{backgroundColor: "#5D4037",
+      buttonStyle={{backgroundColor: "#0091EA",
       width: width*0.3,
       height: 0.09,
       borderColor: "transparent",
@@ -101,6 +114,11 @@ onReloadPressed() {
           opacity={0.7}
           resizeMode='cover'
           />
+          <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
                 <FlatList
                 data={this.props.news_cache}
                 showsVerticalScrollIndicator={false}
@@ -109,12 +127,12 @@ onReloadPressed() {
                   
                   
                   <ImageBackground borderRadius={20}
-              style={{flex:1,padding:1,height:height*0.4,opacity:0.8}}
+              style={{flex:1,padding:1,marginRight:width*0.01,marginLeft:width*0.01,height:height*0.4,opacity:0.8}}
               source={{uri: 'https://www.indiansuperleague.com/'+item.imgSrc}}>
             <Text style={styles.newsText}>{item.title}</Text>
             <View style={styles.buttonView}><Button title="Read more"
             onPress={() => this.onItemPressed(item)}
-      buttonStyle={{backgroundColor: "#5D4037",
+      buttonStyle={{backgroundColor: "#0091EA",
       width: width*0.3,
       height: 0.09,
       borderColor: "transparent",
@@ -139,10 +157,15 @@ onReloadPressed() {
           opacity={0.7}
           resizeMode='cover'
           />
+          <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
              <Text style={styles.newsText}>Sorry An error Occured......Please make sure you have an active internet connection and try again</Text>
              <Button title="Reload"
              onPress={() => this.onReloadPressed()}
-  buttonStyle={{backgroundColor: "#5D4037",
+  buttonStyle={{backgroundColor: "#0091EA",
   width: width*0.3,
   height: 0.09,
   borderColor: "transparent",

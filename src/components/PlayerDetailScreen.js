@@ -14,6 +14,8 @@ import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import {fetchStartPlayerDetails,fetchPlayerDetails, fetchPlayersStart, fetchPlayers} from '../actions';
 import {Button,Card} from 'react-native-elements';
+import LinearGradient from 'react-native-linear-gradient';
+import * as style from './styles';
 var width = Dimensions.get('window').width;
 var height=Dimensions.get('window').height;
 class PlayerDetailScreen extends Component{
@@ -39,6 +41,11 @@ onItemPressed() {
   opacity={0.5}
   resizeMode='cover'
   />
+  <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
                           <ActivityIndicator size={'large'} /> 
                       </View>)
         
@@ -63,6 +70,11 @@ onItemPressed() {
                 return(  
     
                     <ImageBackground source={require('../res/nav_header.jpg')} resizeMode='cover' style={styles.container}>
+                               <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
                                 <ImageBackground source ={{uri:'https://www.indiansuperleague.com/static-resources/images/players/small/0/'+this.props.playerDetailUrl.player_id+'.png?v=1.93'}} resizeMode='cover' style={styles.container}>
                           <ImageBackground source={require('../res/overlay2.png')} resizeMode='stretch' style={styles.container}>
                     
@@ -117,6 +129,11 @@ onItemPressed() {
 return(  
     
 <ImageBackground source={require('../res/nav_header.jpg')} resizeMode='cover' style={styles.container}>
+<LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
             <ImageBackground source ={{uri:'https://www.indiansuperleague.com/static-resources/images/players/small/0/'+this.props.playerDetailUrl.player_id+'.png?v=1.93'}} resizeMode='cover' style={styles.container}>
       <ImageBackground source={require('../res/overlay2.png')} resizeMode='stretch' style={styles.container}>
 
@@ -174,10 +191,15 @@ default:
           opacity={0.5}
           resizeMode='cover'
           />
+          <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
                        <Text style={styles.newsText}>Sorry An error Occured......Please make sure you have active internet connection and Please try again</Text>
                        <Button title="Reload"
                        onPress={() => this.onItemPressed()}
-            buttonStyle={{backgroundColor: "#5D4037",
+            buttonStyle={{backgroundColor: "#0091EA",
             width: width*0.3,
             height: 0.09,
             borderColor: "transparent",
