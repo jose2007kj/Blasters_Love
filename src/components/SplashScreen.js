@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { View, Image } from 'react-native';
+import { View, Image,Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import { navigateToScreen } from '../actions';
+import LinearGradient from 'react-native-linear-gradient';
+import * as style from './styles';
 
 class SplashScreen extends Component {
 
@@ -14,14 +16,19 @@ class SplashScreen extends Component {
     render() {
         const { backgroundImage, logo, container } = styles;
         return (
+            
             <View style={container}>
                 <Image 
                     source={require('../res/nav_header.jpg')}
                     style={backgroundImage}
                     resizeMode="cover"
-                />
-                <Image />
+                /><LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
             </View>
+            
         );
     }
 }

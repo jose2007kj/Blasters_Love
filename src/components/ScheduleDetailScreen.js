@@ -12,7 +12,8 @@ import {Dimensions,StyleSheet,FlatList,Image, Text, View,ActivityIndicator,Image
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import {Button} from 'react-native-elements';
- 
+import LinearGradient from 'react-native-linear-gradient';
+import * as style from './styles';
 import {fetchScheduleDetails,navigateToScreen,fetchStartScheduleDetails} from '../actions';
 
 var width = Dimensions.get('window').width;
@@ -112,7 +113,13 @@ class ScheduleDetailScreen extends Component{
           style={styles.backgroundImage}
           opacity={0.7}
           resizeMode='cover'
-          /><ActivityIndicator size={'large'} />
+          />
+          <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
+          <ActivityIndicator size={'large'} />
       </View>
       case 'success':
       teamStats={};
@@ -149,6 +156,11 @@ class ScheduleDetailScreen extends Component{
           opacity={0.7}
           resizeMode='cover'
           />
+          <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
           {this.renderHeader()}
           {this.renderItem()}
                 
@@ -164,10 +176,15 @@ class ScheduleDetailScreen extends Component{
           opacity={0.7}
           resizeMode='cover'
           />
+          <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
              <Text style={styles.newsText}>Sorry An error Occured......Please make sure you have active internet connection and try again</Text>
              <Button title="Reload"
              onPress={() => this.onItemPressed()}
-  buttonStyle={{backgroundColor: "#5D4037",
+  buttonStyle={{backgroundColor: "#0091EA",
   width: width*0.3,
   height: 0.09,
   borderColor: "transparent",

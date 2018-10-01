@@ -3,6 +3,8 @@ import { View,Image,Dimensions,Text } from 'react-native';
 import { connect } from 'react-redux';
 import { navigateToScreen } from '../actions';
 import { Menu } from './common';
+import LinearGradient from 'react-native-linear-gradient';
+import * as style from './styles';
 
 class DrawerMenu extends Component {
 
@@ -16,6 +18,11 @@ class DrawerMenu extends Component {
           
           resizeMode='cover'
           />
+          <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
             <View style={styles.items}>
                 <Menu 
                 title="News" 

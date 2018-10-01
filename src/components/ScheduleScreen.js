@@ -12,6 +12,8 @@ import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import {Button} from 'react-native-elements'; 
 import {fetchSchedule,navigateToScreen,fetchScheduleStart,saveSchedule,getSavedSchedule} from '../actions';
+import LinearGradient from 'react-native-linear-gradient';
+import * as style from './styles';
 var width = Dimensions.get('window').width;
 var height=Dimensions.get('window').height;
 // dateTime={};
@@ -32,12 +34,11 @@ class ScheduleScreen extends Component{
     }
 renderItem = ({item}) => (
   
-    <View style={{ alignItems:'center', justifyContent:'center', width:width, height:height*0.35, borderRadius:35, borderColor:'#d9991d', margin:5, borderWidth:3, backgroundColor:'rgba(217,153,29,0.4)'}}>
-    
-            <View style={{flexDirection:'row',  alignItems:'center', justifyContent:'center', width:width*0.7, height:height*0.05, borderRadius:35, borderColor:'#d9991d', margin:5, borderWidth:3, backgroundColor:'rgba(217,153,29,0.4)'}}>
-            <Text style={{color:'white',textAlign:'center', fontWeight:'700', fontSize:20}}>{item.event_name}</Text>
-            <Text style={{color:'white',textAlign:'center', fontWeight:'700', fontSize:18}}> {item.event_status}</Text>
+    <View style={{ alignItems:'center', justifyContent:'center',width:width*0.9, height:height*0.35,marginRight:width*0.01,marginLeft:width*0.01, borderRadius:35, borderColor:'#0091EA', margin:5, borderWidth:3, backgroundColor:'rgba(217,153,29,0.4)'}}>
+            <View style={{ alignItems:'center', justifyContent:'center', width:width*0.7, height:height*0.05, borderRadius:35, borderColor:'#0091EA', margin:5, borderWidth:3, backgroundColor:'rgba(217,153,29,0.4)'}}>
+            <Text style={{color:'white',textAlign:'center', fontWeight:'700', fontSize:20}}>{item.start_date}</Text>
             </View>
+            
             <View style={{flexDirection:'row', alignSelf:'center', margin:5,}}>
             <Image 
           source={{uri:'https://www.indiansuperleague.com/static-resources/images/clubs/small/'+item.participants[0].id+'.png?v=1.93'}}
@@ -57,13 +58,14 @@ renderItem = ({item}) => (
           
                           </View>
             
-            
-            <View style={{ alignItems:'center', justifyContent:'center', width:width*0.7, height:height*0.05, borderRadius:35, borderColor:'#d9991d', margin:5, borderWidth:3, backgroundColor:'rgba(217,153,29,0.4)'}}>
-            <Text style={{color:'white',textAlign:'center', fontWeight:'700', fontSize:20}}>{item.start_date}</Text>
+                          <View style={{flexDirection:'row',  alignItems:'center', justifyContent:'center', width:width*0.7, height:height*0.05, borderRadius:35, borderColor:'#0091EA', margin:5, borderWidth:3, backgroundColor:'rgba(217,153,29,0.4)'}}>
+            <Text style={{color:'white',textAlign:'center', fontWeight:'700', fontSize:20}}>{item.event_name}</Text>
+            <Text style={{color:'white',textAlign:'center', fontWeight:'700', fontSize:18}}> {item.event_status}</Text>
             </View>
+            
             {item.event_status!='Yet to begin'?<Button title="Read more"
             onPress={() => this.onItemPressed(item.game_id)}
-      buttonStyle={{backgroundColor: "#5D4037",
+      buttonStyle={{backgroundColor: "#0091EA",
       width: width*0.3,
       height: 0.09,
       borderColor: "transparent",
@@ -80,7 +82,13 @@ renderItem = ({item}) => (
           style={styles.backgroundImage}
           opacity={0.7}
           resizeMode='cover'
-          /><ActivityIndicator size={'large'} />
+          />
+          <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
+          <ActivityIndicator size={'large'} />
       </View>
       case 'success':
       this.props.saveSchedule(this.props.schedule);
@@ -93,6 +101,11 @@ renderItem = ({item}) => (
           opacity={0.7}
           resizeMode='cover'
           />
+          <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
                 <FlatList
                 data={this.props.schedule.data.matches}
                 showsVerticalScrollIndicator={false}
@@ -114,6 +127,11 @@ renderItem = ({item}) => (
           opacity={0.7}
           resizeMode='cover'
           />
+          <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
                <FlatList
                 data={this.props.schedule_cache.data.matches}
                 showsVerticalScrollIndicator={false}
@@ -135,10 +153,15 @@ renderItem = ({item}) => (
           opacity={0.7}
           resizeMode='cover'
           />
+          <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
              <Text style={styles.newsText}>Sorry An error Occured......Please make sure you have an active internet connection and try again</Text>
              <Button title="Reload"
              onPress={() => this.onReloadPressed()}
-  buttonStyle={{backgroundColor: "#5D4037",
+  buttonStyle={{backgroundColor: "#0091EA",
   width: width*0.3,
   height: 0.09,
   borderColor: "transparent",

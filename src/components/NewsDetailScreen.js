@@ -12,6 +12,8 @@ import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import {fetchNewsDetails,fetchStartDetails} from '../actions';
 import {Button,Card} from 'react-native-elements';
+import LinearGradient from 'react-native-linear-gradient';
+import * as style from './styles';
 var width = Dimensions.get('window').width;
 var height=Dimensions.get('window').height;
 class NewsDetailScreen extends Component{
@@ -37,6 +39,11 @@ onReloadPressed(){
           opacity={0.5}
           resizeMode='cover'
           />
+           <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
                                   <ActivityIndicator size={'large'} /> 
                               </View>)
                 
@@ -49,9 +56,16 @@ onReloadPressed(){
           opacity={0.5}
           resizeMode='cover'
           />
+           <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
                   <ScrollView contentContainerStyle={styles.contentContainer}>
                 
-                <Card title={this.props.newsDetailUrl.title}>
+                <Card title={this.props.newsDetailUrl.title}
+                containerStyle = {{borderRadius: 20}}
+                >
                 <Image
                       borderRadius={20}
                       style={{flex:1,padding:1,height:height*0.4}}
@@ -70,10 +84,15 @@ onReloadPressed(){
           opacity={0.5}
           resizeMode='cover'
           />
+           <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
                        <Text style={styles.newsText}>Sorry An error Occured......Please make sure you have an active internet connection and try again</Text>
              <Button title="Reload"
              onPress={() => this.onReloadPressed()}
-            buttonStyle={{backgroundColor: "#5D4037",
+            buttonStyle={{backgroundColor: "#0091EA",
             width: width*0.3,
             height: 0.09,
             borderColor: "transparent",

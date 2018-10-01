@@ -25,7 +25,7 @@ class RouterComponent extends Component {
             <Router
             backAndroidHandler={this.onBackPressed}
             titleStyle={{color:'#F0FFFF'}}
-            navigationBarStyle={{ backgroundColor: '#5D4037' }}
+            navigationBarStyle={{ backgroundColor: '#0091EA' }}
             >
                 <Stack key="root">
                     <Stack key="launcher" hideNavBar>
@@ -46,7 +46,8 @@ class RouterComponent extends Component {
                                 component={NewsScreen}
                                 title="Home"                                
                                 initial
-                                hideNavBar={false}                                
+                                hideNavBar={false} 
+                                                              
                             />
                             <Scene
                                 key="players"
@@ -58,13 +59,15 @@ class RouterComponent extends Component {
                                 key="schedule"
                                 component={ScheduleScreen}
                                 title="schedule"                                
-                                hideNavBar={false}                                
+                                hideNavBar={false}
+                                                               
                             />
                             <Scene
                                 key="standing"
                                 component={StandingScreen}
                                 title="Standings"                                
-                                hideNavBar={false}                                
+                                hideNavBar={false}
+                                                              
                             />
                                
                         </Drawer>
@@ -74,6 +77,7 @@ class RouterComponent extends Component {
                                 title="News Details"
                                 hideNavBar={false}
                                 backButtonImage={BackIcon}
+                                
                             />
                         <Scene
                                 key="playerDetails"
@@ -81,6 +85,7 @@ class RouterComponent extends Component {
                                 title="Player Details"
                                 hideNavBar={false}
                                 backButtonImage={BackIcon}
+                                
                             />
                         <Scene
                                 key="scheduleDetails"
@@ -88,6 +93,7 @@ class RouterComponent extends Component {
                                 title="Match Center"
                                 hideNavBar={false}
                                 backButtonImage={BackIcon}
+                                
                             />
                     </Stack>
                 </Stack>

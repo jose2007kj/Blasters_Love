@@ -12,7 +12,8 @@ import {Dimensions,StyleSheet,FlatList,Image, Text, View,ActivityIndicator,Image
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import {Button} from 'react-native-elements';
- 
+import LinearGradient from 'react-native-linear-gradient';
+import * as style from './styles';
 import {fetchPlayers,navigateToScreen,savePlayers,fetchPlayersStart,getSavedPlayers} from '../actions';
 
 var width = Dimensions.get('window').width;
@@ -41,7 +42,13 @@ onReloadPressed(){
           style={styles.backgroundImage}
           opacity={0.7}
           resizeMode='cover'
-          /><ActivityIndicator size={'large'} />
+          />
+          <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
+          <ActivityIndicator size={'large'} />
       </View>
       case 'success':
       this.props.savePlayers(this.props.players);  
@@ -53,6 +60,11 @@ onReloadPressed(){
           opacity={0.7}
           resizeMode='cover'
           />
+          <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
                 <FlatList
                 data={this.props.players.data.squads.squad.players}
                 showsVerticalScrollIndicator={false}
@@ -67,7 +79,7 @@ onReloadPressed(){
             <Text style={styles.newsText}>{item.full_name}</Text>
             <View style={styles.buttonView}><Button title="Read more"
             onPress={() => this.onItemPressed(item)}
-      buttonStyle={{backgroundColor: "#5D4037",
+      buttonStyle={{backgroundColor: "#0091EA",
       width: width*0.3,
       height: 0.09,
       borderColor: "transparent",
@@ -94,6 +106,11 @@ onReloadPressed(){
           opacity={0.7}
           resizeMode='cover'
           />
+          <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
                <FlatList
                 data={this.props.players_cache.data.squads.squad.players}
                 showsVerticalScrollIndicator={false}
@@ -105,7 +122,7 @@ onReloadPressed(){
             <Text style={styles.newsText}>{item.full_name}</Text>
             <View style={styles.buttonView}><Button title="Read more"
             onPress={() => this.onItemPressed(item)}
-      buttonStyle={{backgroundColor: "#5D4037",
+      buttonStyle={{backgroundColor: "#0091EA",
       width: width*0.3,
       height: 0.09,
       borderColor: "transparent",
@@ -131,11 +148,16 @@ onReloadPressed(){
           opacity={0.7}
           resizeMode='cover'
           />
+          <LinearGradient
+                colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+                start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                style={style.gradient}
+                ></LinearGradient>
                       <Text style={styles.newsText}>Sorry An error Occured......Please make sure you have active internet connection and Please try again</Text>
                       <Button title="Reload"
 
              onPress={() => this.onReloadPressed()}
-  buttonStyle={{backgroundColor: "#5D4037",
+  buttonStyle={{backgroundColor: "#0091EA",
   width: width*0.3,
   height: 0.09,
   borderColor: "transparent",
@@ -166,7 +188,7 @@ const styles = StyleSheet.create({
 top: 0,
   },
     newsText: {
-      marginTop: height*0.1,
+      marginTop: height*0.25,
       fontFamily: 'Helvetica',
       fontSize: 26,
       fontWeight: 'bold',
@@ -177,7 +199,7 @@ textAlignVertical: "center",
     flatview: {
       justifyContent: 'center',
       paddingTop: 30,
-      borderRadius: 2,
+      borderRadius: 25,
     },
     buttonView:{
       marginTop:height*0.1,
