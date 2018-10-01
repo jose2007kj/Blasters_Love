@@ -163,7 +163,7 @@ onReloadPressed() {
                 style={style.gradient}
                 ></LinearGradient>
              <Text style={styles.newsText}>Sorry An error Occured......Please make sure you have an active internet connection and try again</Text>
-             <Button title="0091EA"
+             <Button title="Reload"
              onPress={() => this.onReloadPressed()}
   buttonStyle={{backgroundColor: "#0091EA",
   width: width*0.3,
