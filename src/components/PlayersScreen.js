@@ -74,7 +74,7 @@ onReloadPressed(){
                   
                   
                   <ImageBackground borderRadius={20}
-              style={{flex:1,padding:1,height:height*0.45,opacity:0.8,backgroundColor: 'rgba(0,0,0,.6)'}}
+              style={{flex:1,padding:1,height:height*0.50,opacity:0.8,backgroundColor: 'rgba(0,0,0,.6)'}}
               source={{uri: 'https://www.indiansuperleague.com/static-resources/images/players/small/0/'+item.player_id+'.png?v=1.93'}}>
             <Text style={styles.newsText}>{item.full_name}</Text>
             <View style={styles.buttonView}><Button title="Read more"
@@ -199,7 +199,8 @@ textAlignVertical: "center",
     flatview: {
       justifyContent: 'center',
       paddingTop: 30,
-      borderRadius: 25,
+      width:width*0.9,
+      borderRadius: 2,
     },
     buttonView:{
       marginTop:height*0.1,

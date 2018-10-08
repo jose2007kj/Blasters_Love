@@ -1,5 +1,5 @@
 export const BASE_URL = 'https://www.indiansuperleague.com/';
-export const PLAYERS = BASE_URL.concat('sifeeds/repo/football/static/india_sl/json/85_498_squad.json');
+export const PLAYERS = BASE_URL.concat('sifeeds/repo/football/static/india_sl/json/115_498_squad.json');
 export const PLAYERS_DETAILS = BASE_URL.concat('sifeeds/repo/football/static/india_sl/json/');
 export const NEWS = BASE_URL.concat('clubs/498-kerala-blasters-fc-profile/news/');
 export const NEWS_DETAILS = BASE_URL.concat('clubs/498-kerala-blasters-fc-profile/news/');
